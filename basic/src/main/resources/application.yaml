@@ -1,0 +1,24 @@
+server:
+  port: ${APPLICATION_PORT:8080}
+
+spring:
+  application:
+    name: ${APPLICATION_NAME:basic}
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:labs}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

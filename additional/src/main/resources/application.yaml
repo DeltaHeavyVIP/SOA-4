@@ -1,0 +1,16 @@
+server:
+  port: ${APPLICATION_PORT:8081}
+
+spring:
+  application:
+    name: ${APPLICATION_NAME:additional}
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+feign:
+  httpclient:
+    disable-ssl-validation: true
+    enabled: true
+  okhttp:
+    enabled: true

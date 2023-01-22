@@ -1,0 +1,59 @@
+version: "2.1"
+services:
+
+  db:
+    image: postgres
+    container_name: soaDB
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=soaDB
+    command: postgres -p 5432
+    ports:
+      - "5432:5432"
+
+  basic:
+    image: basic
+    container_name: basic
+    depends_on:
+      - db
+    environment:
+      - APPLICATION_NAME=basic
+      - APPLICATION_PORT=8080
+      - DATABASE_HOST=soaDB
+      - DATABASE_PORT=5432
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_NAME=soaDB
+    ports:
+      - "8080:8080"
+
+  additional:
+    image: additional
+    container_name: additional
+    depends_on:
+      - basic
+    environment:
+      - APPLICATION_NAME=additional
+      - APPLICATION_PORT=8081
+    ports:
+      - "8081:8081"
+
+  gateway:
+    image: gateway
+    container_name: gateway
+    depends_on:
+      - additional
+    environment:
+      - APPLICATION_NAME=gateway
+      - APPLICATION_PORT=8082
+      - BASIC_HOST=basic
+      - BASIC_PORT=8080
+    ports:
+      - "8082:8082"
+
+  front:
+    image: front
+    container_name: front
+    ports:
+      - "3000:3000"
