@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(name = "first-service", url = "http://gateway:8082")
+@FeignClient(name = "first-service", url = "http://basic:8080")
 public interface FirstService {
     String URL_GET_ALL_PRODUCT = "/api/v1/products";
     String URL_UPDATE_PRODUCT = "/api/v1/products/{id}";

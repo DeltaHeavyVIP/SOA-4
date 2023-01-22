@@ -56,4 +56,16 @@ public class Person {
     public CountryDto getNationalityDtoFromPerson() {
         return CountryDto.valueOf(this.getNationality().toString());
     }
+
+    public com.example.objects.common.ColorDto getEyeColorDtoFromPersonRest() {
+        return com.example.objects.common.ColorDto.valueOf(this.getEyeColor().toString());
+    }
+
+    public com.example.objects.common.ColorDto getHairColorDtoFromPersonRest() {
+        return com.example.objects.common.ColorDto.valueOf(this.getHairColor().toString());
+    }
+
+    public com.example.objects.common.CountryDto getNationalityDtoFromPersonRest() {
+        return com.example.objects.common.CountryDto.valueOf(this.getNationality().toString());
+    }
 }

@@ -74,4 +74,8 @@ public class Product {
     public UnitOfMeasureDto getUnitOfMeasureDtoFromProduct() {
         return UnitOfMeasureDto.valueOf(this.getUnitOfMeasure().toString());
     }
+
+    public com.example.objects.common.UnitOfMeasureDto getUnitOfMeasureDtoFromProductRest() {
+        return com.example.objects.common.UnitOfMeasureDto.valueOf(this.getUnitOfMeasure().toString());
+    }
 }

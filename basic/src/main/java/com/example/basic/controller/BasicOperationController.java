@@ -68,7 +68,7 @@ public class BasicOperationController {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteProductByIdRequest")
     @ResponsePayload
-    public void deleteProductById(@RequestPayload DeleteProductByIdRequest deleteProductByIdRequest) { //todo return 202 status code
+    public void deleteProductById(@RequestPayload DeleteProductByIdRequest deleteProductByIdRequest) {
         basicOperationService.deleteProductById(deleteProductByIdRequest.getId());
     }
 
